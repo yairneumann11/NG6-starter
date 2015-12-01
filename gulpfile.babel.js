@@ -28,7 +28,7 @@ let resolveToComponents = (glob) => {
 // map of all paths
 let paths = {
   js: resolveToComponents('**/*!(.spec.js).js'), // exclude spec files
-  styl: resolveToApp('**/*.styl'), // stylesheets
+  sass: resolveToApp('**/*.scss'), // stylesheets
   html: [
     resolveToApp('**/*.html'),
     path.join(root, 'index.html')
@@ -54,7 +54,7 @@ gulp.task('serve', () => {
 });
 
 gulp.task('watch', () => {
-  let allPaths = [].concat([paths.js], paths.html, [paths.styl]);
+  let allPaths = [].concat([paths.js], paths.html, [paths.sass]);
   gulp.watch(allPaths, ['webpack', reload]);
 });
 
